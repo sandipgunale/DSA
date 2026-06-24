@@ -7,6 +7,6 @@ class Solution {
             res = res * 10 + digit;
             x /= 10;
         }
-        return dummy == res ? true : false;
+        return dummy == res;
     }
 }
