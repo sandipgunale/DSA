@@ -1,0 +1,31 @@
+class Solution {
+    public int trap(int[] height) {
+        int l = 0;
+        int r = height.length - 1;
+        int lMax = Integer.MIN_VALUE;
+        int rMax = Integer.MIN_VALUE;
+        int water = 0;
+
+        while(l < r){
+            if(height[l] < height[r]){
+                if(height[l] >= lMax){
+                    lMax = height[l];
+                }
+                else{
+                    water += lMax - height[l];
+                }
+                l++;
+            }
+            else{
+                if(height[r] >= rMax){
+                    rMax = height[r];
+                }
+                else{
+                    water += rMax - height[r];
+                }
+                r--;
+            }
+        }
+        return water;
+    }
+}
