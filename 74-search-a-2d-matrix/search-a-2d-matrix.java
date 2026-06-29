@@ -1,8 +1,8 @@
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        for(int[] num : matrix){
-            for(int n : num){
-                if(n == target){
+        for(int[] nums : matrix){
+            for(int num : nums){
+                if(num == target){
                     return true;
                 }
             }
