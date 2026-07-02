@@ -2,13 +2,10 @@ class Solution {
     public double myPow(double x, int n) {
         long N = n;
         
-        if (N < 0) {
-            x = 1 / x;
-            N = -N;
-        }
+        double ans = pow(x, N);
         
-        return pow(x, N);
-    }
+        return n < 0 ? 1 / ans: ans;
+     }
     
     private double pow(double x, long n) {
         if (n == 0) {
