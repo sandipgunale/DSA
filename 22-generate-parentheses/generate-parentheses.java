@@ -1,8 +1,7 @@
 class Solution {
     public List<String> generateParenthesis(int n) {
-        List<String> list = new LinkedList<>();
-        int o = 0, c = 0;
-        para("", o, c, n, list);
+        List<String> list = new ArrayList<>();
+        para("", 0, 0, n, list);
         return list;
     }
 
