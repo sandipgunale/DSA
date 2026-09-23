@@ -1,21 +1,20 @@
-import java.util.Arrays;
-
 class Solution {
     public int findContentChildren(int[] g, int[] s) {
         Arrays.sort(g);
         Arrays.sort(s);
-
+        int count = 0;
         int i = 0;
-
-        for (int cookieSize : s) {
-            if (i == g.length) {
-                break;
-            }
-            if (cookieSize >= g[i]) {
+        int j = 0;
+        while(i != g.length && j != s.length){
+            if(s[j] >= g[i]){
+                count++;
+                j++;
                 i++;
             }
+            else{
+                j++;
+            }
         }
-        
-        return i;
+        return count;
     }
 }
