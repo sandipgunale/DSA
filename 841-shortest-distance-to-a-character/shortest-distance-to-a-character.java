@@ -1,35 +1,26 @@
 class Solution {
     public int[] shortestToChar(String s, char c) {
-
         int n = s.length();
-        int[] answer = new int[n];
-
-        int distance = n;
-
+        int[] ans = new int[n];
+        
+        int p = -100000;
+        int j = s.indexOf(c);
+        
         for (int i = 0; i < n; i++) {
-
-            if (s.charAt(i) == c) {
-                distance = 0;
-            } else {
-                distance++;
+            if (i > j) {
+                p = j;
+                j = s.indexOf(c, i);
+                if (j == -1) {
+                    j = 100000;
+                }
             }
-
-            answer[i] = distance;
+            
+            int d1 = i - p;
+            int d2 = j - i;
+            
+            ans[i] = Math.min(d1, d2);
         }
-
-        distance = n;
-
-        for (int i = n - 1; i >= 0; i--) {
-
-            if (s.charAt(i) == c) {
-                distance = 0;
-            } else {
-                distance++;
-            }
-
-            answer[i] = Math.min(answer[i], distance);
-        }
-
-        return answer;
+        
+        return ans;
     }
 }
