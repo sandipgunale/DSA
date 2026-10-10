@@ -9,11 +9,9 @@ class Solution {
                 int sum = nums[i] + nums[l] + nums[r];
                 if (sum == 0) {
                     List<Integer> li=Arrays.asList(nums[i], nums[l], nums[r]);
-                    if(!set.contains(li)){
-                        res.add(li);
-                        set.add(li);
-                    }
-                    
+                    Collections.sort(li);
+                    set.add(li);
+
                     l++;
                     r--;
                 }
@@ -27,6 +25,7 @@ class Solution {
                 
             }
         }
+        res.addAll(set);
         return res;
     }
 }
