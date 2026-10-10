@@ -8,7 +8,7 @@ class Solution {
             while (l < r) {
                 int sum = nums[i] + nums[l] + nums[r];
                 if (sum == 0) {
-                    List<Integer> li=Arrays.asList(nums[i], nums[l], nums[r]);
+                    List<Integer> li = Arrays.asList(nums[i], nums[l], nums[r]);
                     Collections.sort(li);
                     set.add(li);
 
