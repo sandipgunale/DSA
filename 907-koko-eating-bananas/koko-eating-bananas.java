@@ -4,7 +4,18 @@ class Solution {
         for (int pile : piles) {
             maxPile = Math.max(maxPile, pile);
         }
-        // Arrays.sort(piles);
+
+        // for (int speed = 1; speed <= maxPile; speed++) {
+        //     int totalHours = 0;
+        //     for (int pile : piles) {
+        //         totalHours += Math.ceil((double) pile / speed);
+        //     }
+
+        //     if (totalHours <= h) {
+        //         return speed;
+        //     }
+        // }
+
         int l = 1, r = maxPile;
         while (l < r) {
             int speed = l + (r - l) / 2;
@@ -20,7 +31,6 @@ class Solution {
                 l = speed + 1; 
             }
         }
-        
         return l;
     }
 }
