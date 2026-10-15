@@ -1,25 +1,32 @@
 class Solution {
-    public List<List<Integer>> combinationSum(int[] arr, int target) {
-     List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> res = new ArrayList<>();
-        // Arrays.sort(arr);
-        combinationSumHelper(arr, target, 0, res, ans);
-        return ans;
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();
+        sum(0, target, candidates, res, ans);
+
+        return res;
     }
 
-   public static void combinationSumHelper(int[] arr, int target, int index, List<Integer> res, List<List<Integer>> ans){
-        if(target == 0){
-            ans.add(new ArrayList<>(res));
-            return;
-        }
-        if(target < 0){
+    public void sum(int idx, int t, int[] c, List<List<Integer>> res, List<Integer> ans){
+        
+        
+
+        if(t == 0){
+            res.add(new ArrayList<>(ans));
             return;
         }
 
-        for(int i = index; i < arr.length; i++){
-            res.add(arr[i]);
-            combinationSumHelper(arr, target - arr[i], i, res, ans);
-            res.remove(res.size() - 1);
+        if(idx == c.length || t < 0){
+            return;
         }
+
+        ans.add(c[idx]);
+
+        sum(idx, t - c[idx], c, res, ans);
+
+        ans.remove(ans.size() - 1);
+
+        sum(idx + 1, t, c, res, ans);
+
     }
 }
