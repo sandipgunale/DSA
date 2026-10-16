@@ -10,7 +10,7 @@ class Solution {
 
     public int find(int m, int n, int r, int c, int[][] dp){
 
-        if(r > m || c > n || r < 1 || c < 1) return 0;
+        if(r > m || c > n ) return 0;
 
         if(r == m && c == n) return 1;
 
@@ -19,8 +19,8 @@ class Solution {
         int down = find(m, n, r + 1, c, dp);
 
         int right = find(m, n, r, c + 1, dp);
-        dp[r][c] = down + right;
-        return down + right;
+        
+        return dp[r][c] = down + right;
 
     }
 }
