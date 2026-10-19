@@ -8,6 +8,9 @@ class Solution {
             if(nums[i] == target){
                 l.add(i);
             }
+            if(nums[i] > target){
+                break;
+            }
         }
 
         return l;
